@@ -25,13 +25,37 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.NotifyIconAutoRun = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.Menu_Enable = New System.Windows.Forms.ToolStripMenuItem
+        Me.Menu_Exit = New System.Windows.Forms.ToolStripMenuItem
+        Me.ContextMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'NotifyIconAutoRun
         '
+        Me.NotifyIconAutoRun.ContextMenuStrip = Me.ContextMenuStrip
         Me.NotifyIconAutoRun.Icon = CType(resources.GetObject("NotifyIconAutoRun.Icon"), System.Drawing.Icon)
-        Me.NotifyIconAutoRun.Text = "NotifyIcon1"
+        Me.NotifyIconAutoRun.Text = "DOSSTONED_AutoRun"
         Me.NotifyIconAutoRun.Visible = True
+        '
+        'ContextMenuStrip
+        '
+        Me.ContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Menu_Enable, Me.Menu_Exit})
+        Me.ContextMenuStrip.Name = "ContextMenuStrip"
+        Me.ContextMenuStrip.Size = New System.Drawing.Size(173, 70)
+        '
+        'Menu_Enable
+        '
+        Me.Menu_Enable.CheckOnClick = True
+        Me.Menu_Enable.Name = "Menu_Enable"
+        Me.Menu_Enable.Size = New System.Drawing.Size(172, 22)
+        Me.Menu_Enable.Text = "Enable Protection"
+        '
+        'Menu_Exit
+        '
+        Me.Menu_Exit.Name = "Menu_Exit"
+        Me.Menu_Exit.Size = New System.Drawing.Size(172, 22)
+        Me.Menu_Exit.Text = "Exit(&E)"
         '
         'Form1
         '
@@ -40,9 +64,13 @@ Partial Class Form1
         Me.ClientSize = New System.Drawing.Size(292, 266)
         Me.Name = "Form1"
         Me.Text = "Form1"
+        Me.ContextMenuStrip.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents NotifyIconAutoRun As System.Windows.Forms.NotifyIcon
+    Friend WithEvents ContextMenuStrip As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents Menu_Enable As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Menu_Exit As System.Windows.Forms.ToolStripMenuItem
 
 End Class
