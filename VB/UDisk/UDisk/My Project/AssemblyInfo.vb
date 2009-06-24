@@ -12,13 +12,13 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("CHINA")> 
 <Assembly: AssemblyProduct("UDisk")> 
-<Assembly: AssemblyCopyright("Copyright © CHINA 2009")> 
+<Assembly: AssemblyCopyright("Copyright © CHINA 2006")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("e301c821-ec4a-4786-ab94-b95f4c474b62")> 
+<Assembly: Guid("629bf0bd-0a24-47c6-94ce-57cfb49dffc0")> 
 
 ' Version information for an assembly consists of the following four values:
 '

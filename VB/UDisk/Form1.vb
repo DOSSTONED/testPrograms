@@ -1,4 +1,6 @@
-﻿Public Class MainForm
+﻿Imports System.IO
+
+Public Class MainForm
 
     Public Const WM_DEVICECHANGE = &H219
     Public Const DBT_DEVICEARRIVAL = &H8000
@@ -16,7 +18,7 @@
     'Public ProtectUDisk As Boolean = 0 ' 1 for protected , 0 for not protected
 
     Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
-        If m.Msg = WM_DEVICECHANGE And CheckBoxEnabled.Checked = True Then
+        If m.Msg = WM_DEVICECHANGE And Menu_Enable.CheckState = CheckState.Checked Then
             Select Case m.WParam
                 Case WM_DEVICECHANGE
                 Case DBT_DEVICEARRIVAL 'U盘插入
@@ -48,7 +50,7 @@
                                 If My.Computer.FileSystem.FileExists(AutorunFiles) Then
                                     '    FileReader.Close()
                                     My.Computer.FileSystem.DeleteFile(AutorunFiles, FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.DeletePermanently)
-                                    'NotifyIconAutoRun.ShowBalloonTip(300, "发现威胁", "文件 " + AutorunFiles + " 已删除", ToolTipIcon.Warning)
+                                    NotifyIconAutoRun.ShowBalloonTip(300, "发现威胁", "文件 " + AutorunFiles + " 已删除", ToolTipIcon.Warning)
                                     'ElseIf FirstString = ";DOSSTONED Authorised" Then
                                     '    NotifyIconAutoRun.ShowBalloonTip(300, "U盘安全", RemoveableDevices.ToString.Remove(1, 2) + "盘已经通过DOSSTONED认证，可放心使用", ToolTipIcon.Info)
                                 End If
@@ -56,22 +58,31 @@
 
                                 If My.Computer.FileSystem.DirectoryExists(AutorunFiles) Then
                                     My.Computer.FileSystem.DeleteDirectory(AutorunFiles, FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.DeletePermanently)
-                                    ' NotifyIconAutoRun.ShowBalloonTip(300, "发现异常", "目录 " + AutorunFiles + " 已删除", ToolTipIcon.Warning)
+                                    NotifyIconAutoRun.ShowBalloonTip(300, "发现异常", "目录 " + AutorunFiles + " 已删除", ToolTipIcon.Warning)
                                 End If
 
-                                RecoverDir(CheckBoxClean1.Checked, RemoveableDevices)
+                                Dim DirectoriesInTop() As String = System.IO.Directory.GetDirectories(RemoveableDevices.ToString)
+                                Dim CurrentDirectoriesInTop As String
+                                For Each CurrentDirectoriesInTop In DirectoriesInTop
+                                    If My.Computer.FileSystem.FileExists(CurrentDirectoriesInTop + ".scr") Then
+                                        My.Computer.FileSystem.DeleteFile(CurrentDirectoriesInTop + ".scr", FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.DeletePermanently)
+                                    End If
+                                    If My.Computer.FileSystem.FileExists(CurrentDirectoriesInTop + ".exe") Then
+                                        My.Computer.FileSystem.DeleteFile(CurrentDirectoriesInTop + ".exe", FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.DeletePermanently)
+                                    End If
+                                Next
 
                                 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-                                'If CheckBoxAddFile.Checked = True Then
-                                'Dim FileReader As System.IO.FileStream = System.IO.File.Create(AutorunFiles)
-                                'FileReader.Write()
-                                'Dim Files() As String = System.IO.Directory.GetFiles(RemoveableDevices.ToString, "*.DOSSTONED")
-                                'Dim CurrentFile As String
-                                'For Each CurrentFile In Files
-                                'My.Computer.FileSystem.CopyFile(CurrentFile, AutorunFiles)
-                                'Next
+                                If CheckBoxAddFile.Checked = True Then
+                                    'Dim FileReader As System.IO.FileStream = System.IO.File.Create(AutorunFiles)
+                                    'FileReader.Write()
+                                    Dim Files() As String = System.IO.Directory.GetFiles(RemoveableDevices.ToString, "*.DOSSTONED")
+                                    Dim CurrentFile As String
+                                    For Each CurrentFile In Files
+                                        My.Computer.FileSystem.CopyFile(CurrentFile, AutorunFiles)
+                                    Next
 
-                                'End If
+                                End If
                                 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
@@ -99,41 +110,40 @@
         MyBase.WndProc(m)
     End Sub
 
-
-    Private Sub RecoverDir(ByVal status As Integer, ByVal RemoveableDevices As IO.DriveInfo)
-
-        If status <> 0 Then
-
-            Dim DirectoriesInTop() As String = System.IO.Directory.GetDirectories(RemoveableDevices.ToString)
-            Dim CurrentDirectoriesInTop As String
-            For Each CurrentDirectoriesInTop In DirectoriesInTop
-                If My.Computer.FileSystem.FileExists(CurrentDirectoriesInTop + ".scr") Then
-                    My.Computer.FileSystem.DeleteFile(CurrentDirectoriesInTop + ".scr", FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.DeletePermanently)
-                End If
-                If My.Computer.FileSystem.FileExists(CurrentDirectoriesInTop + ".exe") Then
-                    My.Computer.FileSystem.DeleteFile(CurrentDirectoriesInTop + ".exe", FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.DeletePermanently)
-                End If
-            Next
-
-        End If
-    End Sub
-
-
-    Private Sub ButtonExit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonExit.Click
+    Private Sub ToolStripMenu_Exit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Application.Exit()
     End Sub
 
-    Private Sub TrackBar_Scroll(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TrackBar.Scroll
-        Me.Opacity = TrackBar.Value / 100
+    Private Sub Menu_Exit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Menu_Exit.Click
+        Application.Exit()
     End Sub
 
-    Private Sub CheckBoxEnabled_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBoxEnabled.CheckedChanged, CheckBoxClean1.CheckedChanged
 
-        If CheckBoxEnabled.Checked = True Then
-            ToolStripStatusEnable.Text = "Enabled"
+    Private Sub Menu_Enable_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Menu_Enable.Click
+
+        If Menu_Enable.CheckState = CheckState.Checked Then
+            'ProtectUDisk = 1
+            NotifyIconAutoRun.ShowBalloonTip(300, "AutoRun 已保护", "您的U盘处于保护之中", ToolTipIcon.Info)
+            NotifyIconAutoRun.Text = "AutoRun 已保护"
         Else
-            ToolStripStatusEnable.Text = "Disabled"
+            'ProtectUDisk = 0
+            NotifyIconAutoRun.ShowBalloonTip(300, "AutoRun 未保护", "您的U盘未处于保护之中", ToolTipIcon.Warning)
+            NotifyIconAutoRun.Text = "AutoRun 未保护"
         End If
 
     End Sub
+
+
+
+
+    Private Sub NotifyIconAutoRun_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles NotifyIconAutoRun.MouseDoubleClick
+        'Me.Show()
+    End Sub
+
+    Private Sub MainForm_SizeChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.SizeChanged
+        ' Me.Hide()
+    End Sub
 End Class
+
+
+'本文来自CSDN博客，转载请标明出处：http://blog.csdn.net/wzuomin/archive/2007/07/27/1711720.aspx
