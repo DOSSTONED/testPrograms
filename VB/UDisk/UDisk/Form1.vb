@@ -16,18 +16,19 @@
     'Public ProtectUDisk As Boolean = 0 ' 1 for protected , 0 for not protected
 
     Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
-        If m.Msg = WM_DEVICECHANGE And CheckBoxEnabled.Checked = True Then
+        If m.Msg = WM_DEVICECHANGE Then
             Select Case m.WParam
                 Case WM_DEVICECHANGE
                 Case DBT_DEVICEARRIVAL 'U盘插入
                     'If ProtectUDisk <> 0 Then
+                    ListBox.Items.Add("UDisk Inserted")
                     Try
                         Dim AllDrives() As IO.DriveInfo = IO.DriveInfo.GetDrives()
                         Dim RemoveableDevices As IO.DriveInfo
                         Dim AutorunFiles As String
 
                         For Each RemoveableDevices In AllDrives
-                            If RemoveableDevices.IsReady = True And RemoveableDevices.DriveType = IO.DriveType.Removable Then
+                            If RemoveableDevices.IsReady = True And RemoveableDevices.DriveType = IO.DriveType.Removable And CheckBoxEnabled.Checked = True Then
                                 'MsgBox(RemoveableDevices.ToString()-":\"+"盘已插入")
 
                                 AutorunFiles = RemoveableDevices.ToString + "Autorun.inf"
@@ -58,24 +59,25 @@
                                     My.Computer.FileSystem.DeleteDirectory(AutorunFiles, FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.DeletePermanently)
                                     ' NotifyIconAutoRun.ShowBalloonTip(300, "发现异常", "目录 " + AutorunFiles + " 已删除", ToolTipIcon.Warning)
                                 End If
-
-                                RecoverDir(CheckBoxClean1.Checked, RemoveableDevices)
-
-                                '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-                                'If CheckBoxAddFile.Checked = True Then
-                                'Dim FileReader As System.IO.FileStream = System.IO.File.Create(AutorunFiles)
-                                'FileReader.Write()
-                                'Dim Files() As String = System.IO.Directory.GetFiles(RemoveableDevices.ToString, "*.DOSSTONED")
-                                'Dim CurrentFile As String
-                                'For Each CurrentFile In Files
-                                'My.Computer.FileSystem.CopyFile(CurrentFile, AutorunFiles)
-                                'Next
-
-                                'End If
-                                ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
-
                             End If
+
+
+                            RecoverDir(CheckBoxClean1.Checked, RemoveableDevices)
+
+                            '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+                            'If CheckBoxAddFile.Checked = True Then
+                            'Dim FileReader As System.IO.FileStream = System.IO.File.Create(AutorunFiles)
+                            'FileReader.Write()
+                            'Dim Files() As String = System.IO.Directory.GetFiles(RemoveableDevices.ToString, "*.DOSSTONED")
+                            'Dim CurrentFile As String
+                            'For Each CurrentFile In Files
+                            'My.Computer.FileSystem.CopyFile(CurrentFile, AutorunFiles)
+                            'Next
+
+                            'End If
+                            ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
                         Next
                     Catch ex As Exception
                         MsgBox(ex.ToString())
@@ -106,13 +108,24 @@
 
             Dim DirectoriesInTop() As String = System.IO.Directory.GetDirectories(RemoveableDevices.ToString)
             Dim CurrentDirectoriesInTop As String
+            Dim s As Integer = 0
             For Each CurrentDirectoriesInTop In DirectoriesInTop
                 If My.Computer.FileSystem.FileExists(CurrentDirectoriesInTop + ".scr") Then
                     My.Computer.FileSystem.DeleteFile(CurrentDirectoriesInTop + ".scr", FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.DeletePermanently)
+                    s = 1
                 End If
                 If My.Computer.FileSystem.FileExists(CurrentDirectoriesInTop + ".exe") Then
                     My.Computer.FileSystem.DeleteFile(CurrentDirectoriesInTop + ".exe", FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.DeletePermanently)
+                    s = 1
                 End If
+
+                If s = 1 Then
+                    SetAttr(CurrentDirectoriesInTop, FileAttribute.Normal)
+                    SetAttr(CurrentDirectoriesInTop, FileAttribute.System)
+                    ListBox.Items.Add("Directory " + CurrentDirectoriesInTop + "Recovered")
+                End If
+
+                'ListBox.Items.Add("Directory " + CurrentDirectoriesInTop + "Detected")
             Next
 
         End If
