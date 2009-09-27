@@ -1,0 +1,16 @@
+﻿<Window x:Class="WPF_DOSSTONED.AboutBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="About Me" Height="320" Width="244" ShowInTaskbar="False" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" AllowsTransparency="False">
+    <Grid Background="Transparent">
+        <Image Margin="0" Name="imageDOSSTONED" Stretch="Uniform" Source="/WPF_DOSSTONED;component/DOSSTONED.png" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <Label Height="28" Margin="0,55,0,0" Name="labelProductName" VerticalAlignment="Top">ProductName</Label>
+        <Label Margin="0,83,0,0" Name="labelVersion" Height="28" VerticalAlignment="Top">Version</Label>
+        <Label Height="28" Margin="0,111,0,0" Name="labelCopyright" VerticalAlignment="Top">Copyright</Label>
+        <Label Margin="0,139,0,0" Name="labelCompanyName" Height="28" VerticalAlignment="Top">CompanyName</Label>
+        <TextBox Name="textBoxDescription" Margin="0,167,0,37" Background="Transparent">Description</TextBox>
+        <Thumb Opacity="0" Background="{x:Null}" x:Name="DragThumb"/>
+        <Button Height="23" HorizontalAlignment="Right" Name="okButton" VerticalAlignment="Bottom" Width="75" Click="okButton_Click" Margin="0,0,6,6">OK</Button>
+        
+    </Grid>
+</Window>
