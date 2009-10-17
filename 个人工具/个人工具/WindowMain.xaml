@@ -1,0 +1,20 @@
+﻿<Window x:Class="个人工具.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     WindowStyle="None"
+        Title="主窗口" Height="378" Width="407" Name="WindowMain" FontSize="16" Closing="WindowMain_Closing" Loaded="WindowMain_Loaded" Icon="/个人工具;component/图像/DOSSTONED_V1.ico">
+    <Grid>
+        <Thumb Opacity="0" Name="DragThumb" DragDelta="DragThumb_DragDelta" />
+
+        <Grid Name="MainGrid">
+            <Button Height="33" HorizontalAlignment="Right" Name="buttonExit" VerticalAlignment="Bottom" Width="89" Click="buttonExit_Click" Margin="0,0,5,5" Background="Transparent">退出</Button>
+            <Button Height="33" Margin="5,0,0,5" Name="buttonAbt" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="89" Click="buttonAbt_Click" Background="Transparent">关于...</Button>
+            <Button Height="55" Margin="12,0,12,67" Name="buttonLock" VerticalAlignment="Bottom" Click="buttonLock_Click" Background="Transparent">暂时离开（锁定计算机）</Button>
+            <Button Margin="12,0,12,138" Name="buttonProgStart" Height="55" VerticalAlignment="Bottom" Click="buttonProgStart_Click" Background="Transparent">快速程序启动</Button>
+            <CheckBox HorizontalAlignment="Right" Margin="0,0,12,152.14" Name="checkBoxChangeparent" Width="127" Height="24" VerticalAlignment="Bottom" Checked="checkBoxChangeparent_Checked" Visibility="Collapsed">从属于Explorer</CheckBox>
+            <Label Height="28" HorizontalAlignment="Left" Name="labelTitle" VerticalAlignment="Top" Width="58" Margin="5,5,0,0">主界面</Label>
+            <Button Height="55" Margin="12,0,12,209" Name="button1" VerticalAlignment="Bottom" Click="button1_Click">Button1</Button>
+            <Label Height="28" HorizontalAlignment="Right" Margin="0,5,5,0" Name="labelTime" VerticalAlignment="Top" Width="70" HorizontalContentAlignment="Right">00:00:00</Label>
+        </Grid>
+    </Grid>
+</Window>
