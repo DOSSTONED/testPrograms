@@ -1,0 +1,23 @@
+﻿20091110
+{
+	基本结构搭建
+}
+
+20091122
+{
+	更改
+	{
+		图标排列方式
+		{
+			删除原来的DockPanel
+			
+			  <DockPanel Margin="0,0,0,46" Name="listViewProgram" Background="Transparent" ScrollViewer.CanContentScroll="False" IsHitTestVisible="True" Focusable="False" />
+			
+			//更改图标的父亲为新建的一个Grid
+			//自己写图标的排列方式
+			为什么不直接放在桌面上？还非得弄出来一个新的。。。而且还没有右键
+				哦，本来是为了统计一下每个图标被点击的次数从而来决定哪个放前面的。。。
+		}
+	}
+
+}
