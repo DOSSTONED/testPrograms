@@ -1,0 +1,14 @@
+﻿<Window x:Class="WPF_SimpleAI.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" Height="321" Width="300" ResizeMode="NoResize">
+    <Grid Name="MainGrid">
+        <Ellipse Width="2" Fill="Black" Height="2" Name="eee" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top"></Ellipse>
+        <Grid  Name="gridFieldZone" Margin="30" Width="210" HorizontalAlignment="Left" Height="210" VerticalAlignment="Top"></Grid>
+        <Label Height="28" Margin="0,24,0,0" Name="labelExit" VerticalAlignment="Top" HorizontalAlignment="Left" Width="39">Exit</Label>
+        <Label Height="28" HorizontalAlignment="Right" Margin="0,212,0,0" Name="labelEnter" VerticalAlignment="Top" Width="39">Enter</Label>
+        <Button Height="23" HorizontalAlignment="Right" Name="buttonStart" VerticalAlignment="Bottom" Width="75" Margin="5" Click="buttonStart_Click">Start</Button>
+        <Label Height="28" Margin="5,0,0,5" Name="label1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="74">Generation:</Label>
+        <Label Height="28" Margin="73,0,0,5" Name="labelGener" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="59">0</Label>
+    </Grid>
+</Window>
