@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 11
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pell_Function", "Pell_Function\Pell_Function.vcproj", "{88A6D972-EE84-4343-B5A2-760E9985E634}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "223and3", "223and3\223and3.csproj", "{C83EAA7A-A41D-4725-BAEE-9013767C9C29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Win32 = Debug|Win32
+		Release|Any CPU = Release|Any CPU
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88A6D972-EE84-4343-B5A2-760E9985E634}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{88A6D972-EE84-4343-B5A2-760E9985E634}.Debug|Win32.ActiveCfg = Debug|Win32
+		{88A6D972-EE84-4343-B5A2-760E9985E634}.Debug|Win32.Build.0 = Debug|Win32
+		{88A6D972-EE84-4343-B5A2-760E9985E634}.Release|Any CPU.ActiveCfg = Release|Win32
+		{88A6D972-EE84-4343-B5A2-760E9985E634}.Release|Win32.ActiveCfg = Release|Win32
+		{88A6D972-EE84-4343-B5A2-760E9985E634}.Release|Win32.Build.0 = Release|Win32
+		{C83EAA7A-A41D-4725-BAEE-9013767C9C29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C83EAA7A-A41D-4725-BAEE-9013767C9C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C83EAA7A-A41D-4725-BAEE-9013767C9C29}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{C83EAA7A-A41D-4725-BAEE-9013767C9C29}.Debug|Win32.Build.0 = Debug|Any CPU
+		{C83EAA7A-A41D-4725-BAEE-9013767C9C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C83EAA7A-A41D-4725-BAEE-9013767C9C29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C83EAA7A-A41D-4725-BAEE-9013767C9C29}.Release|Win32.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
