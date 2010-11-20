@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="GameManager_WPF.GameItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="88" d:DesignWidth="455">
+    <Grid>
+        <Button></Button>
+        <Image HorizontalAlignment="Left" Margin="12,12,0,12" Name="image1" Stretch="Fill" Width="64" />
+        <Label Content="Game Name" Height="30" Margin="82,12,116,0" Name="labelGameName" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" />
+        <Label Content="Label" Height="28" Margin="82,0,116,12" Name="labelGame" VerticalAlignment="Bottom" />
+        <Button Content="Button" Height="23" HorizontalAlignment="Right" Margin="0,0,12,12" Name="button1" VerticalAlignment="Bottom" Width="75" />
+    </Grid>
+</UserControl>

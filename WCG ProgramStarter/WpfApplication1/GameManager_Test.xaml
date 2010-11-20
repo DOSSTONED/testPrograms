@@ -1,0 +1,21 @@
+﻿<Window x:Class="GameManager_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Thumb Opacity="0" DragDelta="Thumb_DragDelta" Grid.ColumnSpan="2"></Thumb>
+        <ProgressBar Height="27" Margin="0,0,12,12" Name="progressBarRight" VerticalAlignment="Bottom" Maximum="255" Background="{x:Null}" Foreground="#8001D328" Grid.Column="1"/>
+        <ProgressBar Height="27" Margin="12,0,0,12" Name="progressBarLeft" VerticalAlignment="Bottom" Background="{x:Null}" Foreground="#8001D328" Maximum="255" Value="0">
+            <ProgressBar.LayoutTransform>
+                <RotateTransform Angle="180" />
+            </ProgressBar.LayoutTransform>
+        </ProgressBar>        
+        <Button Content="Exit" Height="205" HorizontalAlignment="Center" Name="button1" VerticalAlignment="Center" Width="242" Click="button1_Click" Grid.ColumnSpan="2" Margin="130,53" />
+
+    </Grid>
+</Window>
