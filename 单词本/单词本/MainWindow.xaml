@@ -1,0 +1,17 @@
+﻿<Window x:Class="单词本.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="370" Width="601" FontSize="16" ResizeMode="NoResize">
+    <Grid>
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,41,0,0" Name="textBlockWORD" Text="THIS IS A TEST TEXT" VerticalAlignment="Top" Width="143" />
+        <Button Content="3-Understand" HorizontalAlignment="Right" Margin="0,63,12,0" Name="buttonLevel4" Width="189" Height="45" VerticalAlignment="Top" Click="buttonLevels_Click" />
+        <Button Content="2-Know" Height="45" HorizontalAlignment="Right" Margin="0,114,12,0" Name="buttonLevel3" VerticalAlignment="Top" Width="189" Click="buttonLevels_Click" />
+        <Button Content="4-Familiar" Height="45" HorizontalAlignment="Right" Margin="0,12,12,0" Name="buttonLevel5" VerticalAlignment="Top" Width="189" Click="buttonLevels_Click" />
+        <Button Content="1-Seen" Height="45" HorizontalAlignment="Right" Margin="0,165,12,0" Name="buttonLevel2" VerticalAlignment="Top" Width="189" Click="buttonLevels_Click" />
+        <Button Content="0-Don't Know" Height="45" HorizontalAlignment="Right" Margin="0,216,12,0" Name="buttonLevel1" VerticalAlignment="Top" Width="189" Click="buttonLevels_Click" />
+        <TextBox Height="244" HorizontalAlignment="Left" Margin="12,75,0,0" Name="textBoxMeaning" Text="Explanation" VerticalAlignment="Top" Width="360" FontSize="12" TextWrapping="Wrap" MouseLeave="textBoxMeaning_MouseLeave" MouseEnter="textBoxMeaning_MouseEnter" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="textBoxWord" VerticalAlignment="Top" Width="143" />
+        <Button Content="Reload File Lists" Height="23" HorizontalAlignment="Right" Margin="0,0,126,12" Name="buttonReload" VerticalAlignment="Bottom" Width="75" FontSize="10" Click="buttonReload_Click" />
+        <Button Content="Random" Height="23" HorizontalAlignment="Right" Margin="0,0,126,41" Name="buttonNext" VerticalAlignment="Bottom" Width="75" FontSize="10" Click="buttonNext_Click" />
+    </Grid>
+</Window>
