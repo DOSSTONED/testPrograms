@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMI_TEMP_TEST", "WMI_TEMP_TEST\WMI_TEMP_TEST.csproj", "{4DDDB5C9-50AE-41A5-9C13-FA7A513237F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMI_TEMP_CON", "WMI_TEMP_CON\WMI_TEMP_CON.csproj", "{5A2E2D21-FB50-44C3-ACA3-B146D10E6DE8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DDDB5C9-50AE-41A5-9C13-FA7A513237F2}.Debug|x86.ActiveCfg = Debug|x86
+		{4DDDB5C9-50AE-41A5-9C13-FA7A513237F2}.Debug|x86.Build.0 = Debug|x86
+		{4DDDB5C9-50AE-41A5-9C13-FA7A513237F2}.Release|x86.ActiveCfg = Release|x86
+		{4DDDB5C9-50AE-41A5-9C13-FA7A513237F2}.Release|x86.Build.0 = Release|x86
+		{5A2E2D21-FB50-44C3-ACA3-B146D10E6DE8}.Debug|x86.ActiveCfg = Debug|x86
+		{5A2E2D21-FB50-44C3-ACA3-B146D10E6DE8}.Debug|x86.Build.0 = Debug|x86
+		{5A2E2D21-FB50-44C3-ACA3-B146D10E6DE8}.Release|x86.ActiveCfg = Release|x86
+		{5A2E2D21-FB50-44C3-ACA3-B146D10E6DE8}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
