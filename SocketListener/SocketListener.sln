@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketListener", "SocketListener\SocketListener.csproj", "{38DE625A-4331-485C-B2B0-12940297E460}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_1", "Test_1\Test_1.csproj", "{8DE0ED76-5E25-44F1-8AF9-F83E97061B2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefreshPeriodically", "RefreshPeriodically\RefreshPeriodically.csproj", "{26F4AD4E-15B5-40D1-BDDB-7B7D4E614BB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PacketMon", "PacketMon\PacketMon.csproj", "{7186C431-BC0F-4B2C-B0B9-7E5794F03E93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCP查看.Net4", "TCP查看.Net4\TCP查看.Net4.csproj", "{AE18E196-93E2-4E41-852B-F77A648338DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38DE625A-4331-485C-B2B0-12940297E460}.Debug|x86.ActiveCfg = Debug|x86
+		{38DE625A-4331-485C-B2B0-12940297E460}.Debug|x86.Build.0 = Debug|x86
+		{38DE625A-4331-485C-B2B0-12940297E460}.Release|x86.ActiveCfg = Release|x86
+		{38DE625A-4331-485C-B2B0-12940297E460}.Release|x86.Build.0 = Release|x86
+		{8DE0ED76-5E25-44F1-8AF9-F83E97061B2B}.Debug|x86.ActiveCfg = Debug|x86
+		{8DE0ED76-5E25-44F1-8AF9-F83E97061B2B}.Debug|x86.Build.0 = Debug|x86
+		{8DE0ED76-5E25-44F1-8AF9-F83E97061B2B}.Release|x86.ActiveCfg = Release|x86
+		{8DE0ED76-5E25-44F1-8AF9-F83E97061B2B}.Release|x86.Build.0 = Release|x86
+		{26F4AD4E-15B5-40D1-BDDB-7B7D4E614BB2}.Debug|x86.ActiveCfg = Debug|x86
+		{26F4AD4E-15B5-40D1-BDDB-7B7D4E614BB2}.Debug|x86.Build.0 = Debug|x86
+		{26F4AD4E-15B5-40D1-BDDB-7B7D4E614BB2}.Release|x86.ActiveCfg = Release|x86
+		{26F4AD4E-15B5-40D1-BDDB-7B7D4E614BB2}.Release|x86.Build.0 = Release|x86
+		{7186C431-BC0F-4B2C-B0B9-7E5794F03E93}.Debug|x86.ActiveCfg = Debug|x86
+		{7186C431-BC0F-4B2C-B0B9-7E5794F03E93}.Debug|x86.Build.0 = Debug|x86
+		{7186C431-BC0F-4B2C-B0B9-7E5794F03E93}.Release|x86.ActiveCfg = Release|x86
+		{7186C431-BC0F-4B2C-B0B9-7E5794F03E93}.Release|x86.Build.0 = Release|x86
+		{AE18E196-93E2-4E41-852B-F77A648338DC}.Debug|x86.ActiveCfg = Debug|x86
+		{AE18E196-93E2-4E41-852B-F77A648338DC}.Debug|x86.Build.0 = Debug|x86
+		{AE18E196-93E2-4E41-852B-F77A648338DC}.Release|x86.ActiveCfg = Release|x86
+		{AE18E196-93E2-4E41-852B-F77A648338DC}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
