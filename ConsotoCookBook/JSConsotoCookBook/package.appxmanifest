@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+
+  <Identity
+    Name="7a1c6fe4-d9d8-44a5-9a04-e85acd7e28c6"
+    Version="1.0.0.0"
+    Publisher="CN=DOS" />
+
+  <Properties>
+    <DisplayName>JSConsotoCookBook</DisplayName>
+    <Description>JSConsotoCookBook</Description>
+    <PublisherDisplayName>DOS</PublisherDisplayName>
+    <Logo>images\storelogo.png</Logo>
+  </Properties>
+
+  <Prerequisites>
+    <OSMinVersion>6.2</OSMinVersion>
+    <OSMaxVersionTested>6.2</OSMaxVersionTested>
+  </Prerequisites>
+
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+
+  <Applications>
+    <Application 
+      Id="App"
+      StartPage="default.html">
+
+      <VisualElements
+        DisplayName="JSConsotoCookBook"
+        Logo="images\logo.png"
+        SmallLogo="images\smalllogo.png"
+        Description="JSConsotoCookBook"
+        ForegroundText="light"
+        BackgroundColor="#000000">
+
+        <DefaultTile ShowName="allLogos" />
+        <SplashScreen Image="images\splashscreen.png" />
+
+      </VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+
+</Package>

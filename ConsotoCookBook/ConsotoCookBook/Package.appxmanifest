@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="33e9e7bd-15b0-48cb-99cf-95f34b9e25b9" Publisher="CN=DOS" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>ConsotoCookBook</DisplayName>
+    <PublisherDisplayName>DOS</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+    <Description>ConsotoCookBook</Description>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2</OSMinVersion>
+    <OSMaxVersionTested>6.2</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="ConsotoCookBook.App">
+      <VisualElements DisplayName="Consoto CookBook" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Consoto CookBook application" ForegroundText="light" BackgroundColor="#222222">
+        <DefaultTile ShowName="allLogos" />
+        <SplashScreen Image="Assets\SplashScreen.png" />
+      </VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>
