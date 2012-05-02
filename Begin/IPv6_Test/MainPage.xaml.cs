@@ -19,13 +19,13 @@ namespace IPv6_Test
         public MainPage()
         {
             InitializeComponent();
-            txtRemoteHost.Text = "192.168.5.54";
+            txtRemoteHost.Text = "192.168.1.1";
         }
 
         // Constants
-        const int ECHO_PORT = 61011;  // The Echo protocol uses port 7 in this sample
-        const int QOTD_PORT = 61011; // The Quote of the Day (QOTD) protocol uses port 17 in this sample
-        const int DOSCUS_PORT = 61010;  // Customed port.
+        const int ECHO_PORT = 7;  // The Echo protocol uses port 7 in this sample
+        const int QOTD_PORT = 17; // The Quote of the Day (QOTD) protocol uses port 17 in this sample
+        const int DOSCUS_PORT = 1234;  // Customed port.
 
         /// <summary>
         /// Handle the btnEcho_Click event by sending text to the echo server and outputting the response
