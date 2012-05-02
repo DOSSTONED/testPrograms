@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010 Express for Windows Phone
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hello Phone", "Hello Phone\Hello Phone.csproj", "{E4DD0F6F-F1C3-4567-964F-0C8DE1B6A1FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBoundApp1", "DataBoundApp1\DataBoundApp1.csproj", "{79659658-E2F3-482E-BA0F-79B3D7D8FFAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPv6_Test", "IPv6_Test\IPv6_Test.csproj", "{C202FA19-2B0B-4801-AB11-61221A265ED8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DialOnly", "DialOnly\DialOnly.csproj", "{5B39C084-4D3F-43D2-AD9C-947CB891313C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4DD0F6F-F1C3-4567-964F-0C8DE1B6A1FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4DD0F6F-F1C3-4567-964F-0C8DE1B6A1FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4DD0F6F-F1C3-4567-964F-0C8DE1B6A1FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4DD0F6F-F1C3-4567-964F-0C8DE1B6A1FF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{79659658-E2F3-482E-BA0F-79B3D7D8FFAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79659658-E2F3-482E-BA0F-79B3D7D8FFAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79659658-E2F3-482E-BA0F-79B3D7D8FFAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79659658-E2F3-482E-BA0F-79B3D7D8FFAA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C202FA19-2B0B-4801-AB11-61221A265ED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C202FA19-2B0B-4801-AB11-61221A265ED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C202FA19-2B0B-4801-AB11-61221A265ED8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C202FA19-2B0B-4801-AB11-61221A265ED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C202FA19-2B0B-4801-AB11-61221A265ED8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C202FA19-2B0B-4801-AB11-61221A265ED8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5B39C084-4D3F-43D2-AD9C-947CB891313C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B39C084-4D3F-43D2-AD9C-947CB891313C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B39C084-4D3F-43D2-AD9C-947CB891313C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B39C084-4D3F-43D2-AD9C-947CB891313C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
