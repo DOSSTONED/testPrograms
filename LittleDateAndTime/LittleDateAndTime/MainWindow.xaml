@@ -1,0 +1,25 @@
+﻿<Window x:Class="LittleDateAndTime.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
+        Title="MainWindow" Height="123" Width="230" FontSize="24">
+    <Window.Resources>
+            <!-- Get the current DateTime just once and stash it in
+                a Tag property of an arbitrary FrameworkElement. -->
+            <FrameworkElement x:Key="dt" Tag="{x:Static s:DateTime.Now}" />
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Canvas.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <!--<DoubleAnimation Storyboard.TargetName="D_T"
+                                     Storyboard.TargetProperty="Text"
+                                     From="0" To="360" Duration="0:1:0"
+                                     IsAdditive="True"
+                                     RepeatBehavior="Forever" />-->
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <TextBlock x:Name="D_T" Height="87" TextWrapping="Wrap" Text="{Binding Source={StaticResource dt}}" Width="222" TextAlignment="Center" IsManipulationEnabled="True"/>
+</Window>
