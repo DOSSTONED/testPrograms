@@ -1,0 +1,42 @@
+﻿<Window x:Class="感知机Display.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Perceptron" Height="438" Width="770" FontSize="20" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="273*" />
+            <RowDefinition Height="72*" />
+            <RowDefinition Height="54*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="225" />
+            <ColumnDefinition Width="293*" />
+        </Grid.ColumnDefinitions>
+        <Grid Name="grid1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="5*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*" />
+                <ColumnDefinition Width="100*" />
+            </Grid.ColumnDefinitions>
+            <Label Content="(0,0,0)=1" Name="label1" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="20" MouseDoubleClick="label_MouseDoubleClick" />
+            <Label Content="(0,0,1)=1" FontSize="20" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Name="label2" VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" MouseDoubleClick="label_MouseDoubleClick" />
+            <Label Content="(0,1,0)=1" FontSize="20" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Name="label3" VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" MouseDoubleClick="label_MouseDoubleClick" />
+            <Label Content="(0,1,1)=-1" FontSize="20" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Name="label4" VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="1" MouseDoubleClick="label_MouseDoubleClick" />
+            <Label Content="(1,0,0)=1" FontSize="20" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Name="label5" VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.Row="2" MouseDoubleClick="label_MouseDoubleClick" />
+            <Label Content="(1,0,1)=-1" FontSize="20" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Name="label6" VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="2" MouseDoubleClick="label_MouseDoubleClick" />
+            <Label Content="(1,1,0)=1" FontSize="20" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Name="label7" VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.Row="3" MouseDoubleClick="label_MouseDoubleClick" />
+            <Label Content="(1,1,1)=-1" FontSize="20" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Name="label8" VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="3" MouseDoubleClick="label_MouseDoubleClick" />
+        </Grid>
+        <Button Content="Go!" Name="buttonGo" Grid.Row="1" Click="buttonGo_Click" />
+        <Label Content="y=?" Name="labelResult" Grid.Row="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Margin="0,0,177,0" />
+        <ListBox Grid.Column="1" Name="listBoxProcess" Grid.RowSpan="2" Background="{x:Null}" Visibility="Hidden"/>
+        <ListBox Grid.Column="1" Name="listBoxResult" Grid.RowSpan="2" Background="{x:Null}" />
+        <Button Content="Go to process" Name="buttonChangeView" Background="{x:Null}" Click="buttonChangeView_Click" Grid.Column="1" Foreground="#FF0C9679" Grid.Row="2" HorizontalAlignment="Right" Width="171"></Button>
+        <Button Content="About" Grid.Row="2" Name="buttonAbout" Click="buttonAbout_Click" />
+    </Grid>
+</Window>
