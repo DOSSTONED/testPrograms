@@ -18,7 +18,10 @@ namespace BatchSSH
                 
                 try
                 {
-                    var connectionInfo = new KeyboardInteractiveConnectionInfo("162.105.209." + i.ToString(), 61022, "pi");
+                    string ip = "192.168.0." + i.ToString();
+                    string username = "username";
+                    int port = 22;
+                    var connectionInfo = new KeyboardInteractiveConnectionInfo(ip, port, username);
                     connectionInfo.AuthenticationPrompt += delegate(object sender, AuthenticationPromptEventArgs e)
                     {
                         foreach (var prompt in e.Prompts)
