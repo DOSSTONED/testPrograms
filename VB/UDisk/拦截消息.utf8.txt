@@ -1,0 +1,354 @@
+主annyking（anny）2006-05-15 21:40:00 在 VB / API 提问
+U盘插入和退出计算机时拦消息,怎么写?   
+  有思路和资料的也行,   
+  请不要提供用TIME来不停查寻的例子,太浪费系统资料.谢谢 
+问题点数：100、回复次数：26
+Top
+ 
+
+1 楼vansoft（Vansoft Workroom）回复于 2006-05-16 09:22:37 得分 1用API啊，HOOK系統消息就行了。
+Top
+
+2 楼yinweihong（）回复于 2006-05-16 09:27:17 得分 2WM_DEVICECHANGE     消息
+Top
+
+3 楼yinweihong（）回复于 2006-05-16 09:31:48 得分 1http://support.microsoft.com/default.aspx?scid=kb;en-us;163503     官方   
+    
+  vb6的   
+  http://www.experts-exchange.com/Programming/Programming_Languages/Visual_Basic/Q_21325034.html   
+  http://www.mvps.org/vbvision/Sample_Projects.htm
+Top
+
+4 楼HZWang（Bateau ^_^）回复于 2006-07-18 00:22:57 得分 1怎么不好用呀
+Top
+
+5 楼boywang（大力水手）回复于 2006-07-18 01:29:52 得分 2处理WM_DEVICECHANGE     消息。
+Top
+
+6 楼vansoft（Vansoft Workroom）回复于 2006-07-18 09:03:17 得分 5最簡單的方法是:   
+    
+  SysInfo控件
+Top
+
+7 楼zcsor（偶业余的虽然星星了，但是水平依然是非常业余的。）回复于 2006-07-18 12:57:54 得分 10做了个测试   
+    
+  Private   Sub   SysInfo_DeviceArrival(ByVal   DeviceType   As   Long,   ByVal   DeviceID   As   Long,   ByVal   DeviceName   As   String,   ByVal   DeviceData   As   Long)   
+  Print   "SysInfo_DeviceArriva",   DeviceType,   DeviceID,   DeviceName   
+  End   Sub   
+    
+  Private   Sub   SysInfo_DeviceQueryRemove(ByVal   DeviceType   As   Long,   ByVal   DeviceID   As   Long,   ByVal   DeviceName   As   String,   ByVal   DeviceData   As   Long,   Cancel   As   Boolean)   
+  Print   "SysInfo_DeviceQueryRemove",   DeviceType,   DeviceID,   DeviceName   
+  End   Sub   
+    
+  Private   Sub   SysInfo_DeviceRemoveComplete(ByVal   DeviceType   As   Long,   ByVal   DeviceID   As   Long,   ByVal   DeviceName   As   String,   ByVal   DeviceData   As   Long)   
+  Print   "SysInfo_DeviceRemoveComplete",   DeviceType,   DeviceID,   DeviceName   
+  End   Sub   
+    
+  只在DeviceArrival，DeviceRemoveComplete里面有输出   
+  而且DeviceArrival里面没有DeviceName的输出，DeviceRemoveComplete没有DeviceType的输出，很奇怪啊
+Top
+
+8 楼zcsor（偶业余的虽然星星了，但是水平依然是非常业余的。）回复于 2006-07-18 13:55:17 得分 10恩，觉得还是用拦截消息比较好（可能SYSINFO我不大了解），写了一下代码，楼主可以测试了   
+    
+  在测试前添加MSGHOOK控件，并重新命名为MSGHOOK，测试时插如和移除U盘都会改标题，并且在窗体上显示出单前存在的U盘   
+    
+    
+  Option   Explicit   
+  'API   
+  Private   Declare   Function   GetDriveType   Lib   "kernel32"   Alias   "GetDriveTypeA"   (ByVal   nDrive   As   String)   As   Long   
+  '消息   
+  Const   WM_DEVICECHANGE   =   &H219   
+  '磁盘   
+  Dim   mUDisk()   As   String   
+    
+  Private   Sub   Form_Load()   
+  'HOOK   
+  Msghook.HwndHook   =   Me.hWnd   
+  Msghook.Message(WM_DEVICECHANGE)   =   True   
+  '磁盘   
+          USBDISK   
+  End   Sub   
+    
+  Private   Sub   Msghook_Message(ByVal   msg   As   Long,   ByVal   wp   As   Long,   ByVal   lp   As   Long,   result   As   Long)   
+  'Debug.Print   wp,   lp   '插入并移除两次操作输出到DEBUG   
+  '以下为输出结果   
+  '   7                           0   
+  '   7                           0   
+  '   7                           0   
+  '   7                           0   
+  '   7                           0   
+  '   32768                   1244644   
+  '   7                           0   
+  '   7                           0   
+  '   7                           0   
+  '   7                           0   
+  '   32772                   1244644   
+  '   7                           0   
+  '   7                           0   
+  If   wp   =   32768   And   lp   =   1244644   Then   
+          Me.Caption   =   "u盘插入"   
+          USBDISK   
+  End   If   
+  If   wp   =   32772   And   lp   =   1244644   Then   
+          Me.Caption   =   "u盘移除"   
+          USBDISK   
+  End   If   
+  Call   Msghook.InvokeWindowProc(msg,   wp,   lp)   
+  End   Sub   
+    
+  Private   Function   USBDISK()   
+  Dim   i   As   Long   
+          For   i   =   Asc("A")   To   Asc("Z")   
+                  If   GetDriveType(Chr(i)   +   ":")   =   2   Then   Print   "现有U盘:   "   &   Chr(i)   
+          Next   i   
+  End   Function   
+  
+Top
+
+9 楼zcsor（偶业余的虽然星星了，但是水平依然是非常业余的。）回复于 2006-07-18 14:04:45 得分 5哦哦忘记说了   
+  '磁盘   
+  Dim   mUDisk()   As   String   
+  这个定义没用到，本来是想写程序启动时获取U盘，在插入或移除时再统计一下，然后比较，提示插入或被移除的U盘是哪个来着，，呵呵。。懒没写，所以Private   Function   USBDISK()写成了函数的形式，楼主自己改吧
+Top
+
+10 楼verywzm（寒江雪）回复于 2006-07-18 15:15:46 得分 29'=============窗体代码=================   
+  Private   Declare   Function   RegisterDeviceNotification   Lib   "User32.dll"   Alias   _   
+  "RegisterDeviceNotificationA"   (ByVal   hRecipient   As   Long,   _   
+  ByRef   NotificationFilter   As   Any,   ByVal   Flags   As   Long)   As   Long   
+  Private   Declare   Function   UnregisterDeviceNotification   Lib   "User32.dll"   (   _   
+  ByVal   Handle   As   Long)   As   Long   
+    
+  Private   Type   Guid   
+  Data1   As   Long   
+  Data2   As   Integer   
+  Data3   As   Integer   
+  Data4(7)   As   Byte   
+  End   Type   
+    
+  Private   Type   DEV_BROADCAST_DEVICEINTERFACE   
+  dbcc_size   As   Long   
+  dbcc_devicetype   As   Long   
+  dbcc_reserved   As   Long   
+  dbcc_classguid   As   Guid   
+  dbcc_name   As   Long   
+  End   Type   
+    
+  Private   hDevNotify   As   Long   
+    
+  Private   Const   DEVICE_NOTIFY_WINDOW_HANDLE   As   Long   =   &H0   
+  Private   Const   DBT_DEVTYP_DEVICEINTERFACE   As   Long   =   &H5   '   Device   interface   class   
+  Private   Const   DEVICE_NOTIFY_ALL_INTERFACE_CLASSES   As   Long   =   &H4   
+    
+    
+    
+  Private   Sub   Form_Load()   
+          Dim   NotificationFilter   As   DEV_BROADCAST_DEVICEINTERFACE   
+    
+          With   NotificationFilter   
+                  .dbcc_size   =   Len(NotificationFilter)   
+                  .dbcc_devicetype   =   DBT_DEVTYP_DEVICEINTERFACE   
+          End   With   
+    
+          Call   SubClass(Me.hWnd)       '子类化   
+          hDevNotify   =   RegisterDeviceNotification(Me.hWnd,   NotificationFilter,   _   
+                                    DEVICE_NOTIFY_WINDOW_HANDLE   Or   DEVICE_NOTIFY_ALL_INTERFACE_CLASSES)   
+  End   Sub   
+    
+  Private   Sub   Form_Unload(ByRef   Cancel   As   Integer)   
+          Call   UnregisterDeviceNotification(hDevNotify)   
+    
+          Call   UnSubClass   
+  End   Sub   
+    
+    
+    
+  '=====================模块代码======================   
+  Private   Declare   Function   SetWindowLong   Lib   "User32.dll"   Alias   "SetWindowLongA"   (   _   
+  ByVal   hWnd   As   Long,   ByVal   nIndex   As   Long,   ByVal   dwNewLong   As   Long)   As   Long   
+  Private   Declare   Function   CallWindowProc   Lib   "User32.dll"   Alias   "CallWindowProcA"   (   _   
+  ByVal   lpPrevWndFunc   As   Long,   ByVal   hWnd   As   Long,   ByVal   Msg   As   Long,   _   
+  ByVal   wParam   As   Long,   ByVal   lParam   As   Long)   As   Long   
+  Private   Declare   Function   StringFromGUID2   Lib   "OLE32.dll"   (   _   
+  ByRef   rGUID   As   Any,   ByVal   lpSz   As   String,   ByVal   cchMax   As   Long)   As   Long   
+  Private   Declare   Function   lstrcpyA   Lib   "Kernel32.dll"   (ByVal   lpString1   As   String,   ByVal   lpString2   As   Long)   As   Long   
+  Private   Declare   Function   lstrlenA   Lib   "Kernel32.dll"   (ByVal   lpString   As   Long)   As   Long   
+  Private   Declare   Function   GetDriveType   Lib   "Kernel32.dll"   Alias   "GetDriveTypeA"   (ByVal   nDrive   As   String)   As   Long   
+  Private   Declare   Sub   RtlMoveMemory   Lib   "Kernel32.dll"   (   _   
+  ByRef   Destination   As   Any,   ByRef   Source   As   Any,   ByVal   Length   As   Long)   
+  Private   Declare   Sub   GetDWord   Lib   "MSVBVM60.dll"   Alias   "GetMem4"   (ByRef   inSrc   As   Any,   ByRef   inDst   As   Long)   
+  Private   Declare   Sub   GetWord   Lib   "MSVBVM60.dll"   Alias   "GetMem2"   (ByRef   inSrc   As   Any,   ByRef   inDst   As   Integer)   
+    
+  Private   Type   DEV_BROADCAST_HDR   
+  dbch_size   As   Long   
+  dbch_devicetype   As   Long   
+  dbch_reserved   As   Long   
+  End   Type   
+    
+  Private   Type   Guid   
+  Data1   As   Long   
+  Data2   As   Integer   
+  Data3   As   Integer   
+  Data4(7)   As   Byte   
+  End   Type   
+    
+  Dim   OldProc   As   Long   
+  Dim   WndHnd   As   Long   
+    
+  Private   Const   GWL_WNDPROC   As   Long   =   (-4)   
+  Private   Const   WM_DEVICECHANGE   As   Long   =   &H219   
+  Private   Const   DBT_DEVNODES_CHANGED   As   Long   =   &H7   
+  Private   Const   DBT_DEVICEARRIVAL   As   Long   =   &H8000&   
+  Private   Const   DBT_DEVICEREMOVECOMPLETE   As   Long   =   &H8004&   
+    
+  Private   Const   DBT_DEVTYP_VOLUME   As   Long   =   &H2   '   Logical   volume   
+  Private   Const   DBT_DEVTYP_DEVICEINTERFACE   As   Long   =   &H5   '   Device   interface   class   
+    
+  Private   Const   DBTF_MEDIA   As   Long   =   &H1   '   Media   comings   and   goings   
+  Private   Const   DBTF_NET   As   Long   =   &H2   '   Network   volume   
+    
+  Private   Const   DRIVE_NO_ROOT_DIR   As   Long   =   1   
+  Private   Const   DRIVE_REMOVABLE   As   Long   =   2   
+  Private   Const   DRIVE_FIXED   As   Long   =   3   
+  Private   Const   DRIVE_REMOTE   As   Long   =   4   
+  Private   Const   DRIVE_CDROM   As   Long   =   5   
+  Private   Const   DRIVE_RAMDISK   As   Long   =   6   
+    
+  Public   Sub   SubClass(ByVal   inWnd   As   Long)   
+          If   (WndHnd)   Then   Call   UnSubClass   
+    
+          OldProc   =   SetWindowLong(inWnd,   GWL_WNDPROC,   AddressOf   WndProc)   
+          WndHnd   =   inWnd   
+  End   Sub   
+    
+  Public   Sub   UnSubClass()   
+          If   (WndHnd   =   0)   Then   Exit   Sub   
+          Call   SetWindowLong(WndHnd,   GWL_WNDPROC,   OldProc)   
+    
+          WndHnd   =   0   
+          OldProc   =   0   
+  End   Sub   
+    
+  Private   Function   WndProc(ByVal   hWnd   As   Long,   _   
+                                                    ByVal   uMsg   As   Long,   ByVal   wParam   As   Long,   ByVal   lParam   As   Long)   As   Long   
+          Dim   DevBroadcastHeader   As   DEV_BROADCAST_HDR   
+          Dim   UnitMask   As   Long,   Flags   As   Integer   
+          Dim   DeviceGUID   As   Guid   
+          Dim   DeviceNamePtr   As   Long   
+          Dim   DriveLetters   As   String   
+          Dim   LoopDrives   As   Long   
+    
+          If   (uMsg   =   WM_DEVICECHANGE)   Then   
+                  Select   Case   wParam   
+                  Case   DBT_DEVICEARRIVAL,   DBT_DEVICEREMOVECOMPLETE   
+                          If   (lParam)   Then   '   Read   generic   DEV_BROADCAST_HDR   structure   
+                                  Call   RtlMoveMemory(DevBroadcastHeader,   ByVal   lParam,   Len(DevBroadcastHeader))   
+    
+                                  If   (DevBroadcastHeader.dbch_devicetype   =   DBT_DEVTYP_VOLUME)   Then   
+                                          '   Read   end   of   DEV_BROADCAST_VOLUME   structure   
+                                          Call   GetDWord(ByVal   (lParam   +   Len(DevBroadcastHeader)),   UnitMask)   
+                                          Call   GetWord(ByVal   (lParam   +   Len(DevBroadcastHeader)   +   4),   Flags)   
+    
+                                          DriveLetters   =   UnitMaskToString(UnitMask)   
+    
+                                          For   LoopDrives   =   1   To   Len(DriveLetters)   
+                                                  If   wParam   =   DBT_DEVICEARRIVAL   Then               '如果是插入   
+                                                          If   DriveTypeToString(GetDriveType(Mid$(DriveLetters,   LoopDrives,   1)   &   ":\"))   =   "Removable"   Then       '如果是可移动磁盘   
+                                                                  MsgBox   "插入"   
+                                                          End   If   
+                                                  Else           '否则是拔出   
+                                                          If   DriveTypeToString(GetDriveType(Mid$(DriveLetters,   LoopDrives,   1)   &   ":\"))   =   "Removable"   Then       '如果是可移动磁盘   
+                                                                  MsgBox   "拔出"   
+                                                          End   If   
+                                                  End   If   
+                                          Next   LoopDrives   
+    
+                                  End   If   
+                          End   If   
+    
+                  End   Select   
+          End   If   
+    
+          WndProc   =   CallWindowProc(OldProc,   hWnd,   uMsg,   wParam,   lParam)   
+  End   Function   
+    
+  Private   Function   UnitMaskToString(ByVal   inUnitMask   As   Long)   As   String   
+          Dim   LoopBits   As   Long   
+    
+          For   LoopBits   =   0   To   30   
+                  If   (inUnitMask   And   (2   ^   LoopBits))   Then   _   
+                        UnitMaskToString   =   UnitMaskToString   &   Chr$(Asc("A")   +   LoopBits)   
+          Next   LoopBits   
+  End   Function   
+    
+    
+    
+  Private   Function   DriveTypeToString(ByVal   inDriveType   As   Long)   As   String   '判断磁盘类型   
+          Select   Case   inDriveType   
+          Case   DRIVE_NO_ROOT_DIR:   DriveTypeToString   =   "No   root   directory"   '??   
+          Case   DRIVE_REMOVABLE:   DriveTypeToString   =   "Removable"   
+          Case   DRIVE_FIXED:   DriveTypeToString   =   "Fixed"   
+          Case   DRIVE_REMOTE:   DriveTypeToString   =   "Remote"   
+          Case   DRIVE_CDROM:   DriveTypeToString   =   "CD-ROM"   
+          Case   DRIVE_RAMDISK:   DriveTypeToString   =   "RAM   disk"   
+          Case   Else:   DriveTypeToString   =   "[   Unknown   ]"   
+          End   Select   
+  End   Function   
+  
+Top
+
+11 楼zcsor（偶业余的虽然星星了，但是水平依然是非常业余的。）回复于 2006-07-18 16:03:23 得分 1哈，寒江同志的子类化还是这么悍，学习ING
+Top
+
+12 楼AnnaBear（淡淡）回复于 2006-07-18 16:12:59 得分 1想请问MSGHOOK控件怎么添加，在哪呢，没找到，谢谢啦^_^
+Top
+
+13 楼zcsor（偶业余的虽然星星了，但是水平依然是非常业余的。）回复于 2006-07-18 16:15:29 得分 1倒，那是一个第三方控件，不是VB自带的，给我你E-MAIL，我给你发过去。。。其实大家都有吧，呵呵。。
+Top
+
+14 楼zcsor（偶业余的虽然星星了，但是水平依然是非常业余的。）回复于 2006-07-18 16:16:48 得分 1记得以前帖子里面我回复的是用WMI，当时还因为无知说用MSGHOOK不行，呵呵，没想到，今天竟然写了这个代码，看来我是有进步喽~~~~~嘿嘿   以后还要多象大家学习！
+Top
+
+15 楼zcsor（偶业余的虽然星星了，但是水平依然是非常业余的。）回复于 2006-07-18 16:18:39 得分 1今天不弄我那外挂了，封包分析会头疼，记得以前分析三星手机的BIN就分析了半个月，头都搞的跟门一样大了~~出门的时候用脑袋撞门框，哈哈（纯属虚构），还是看看帖子回回问题吧，好多天没得分了呢
+Top
+
+16 楼aspower_（敬个礼 握个手 大家都素好朋友！）回复于 2006-07-18 19:07:42 得分 1顶你个肺
+Top
+
+17 楼HZWang（Bateau ^_^）回复于 2006-07-18 22:09:03 得分 1谢谢寒江雪同志哦，但是好像当U盘拨出时弹不出对话框
+Top
+
+18 楼qjwxsd（Zero）回复于 2006-07-18 22:37:40 得分 2研究一下DDK先
+Top
+
+19 楼VirtualDesktop（^_^）回复于 2006-07-18 22:38:52 得分 10http://community.csdn.net/Expert/topic/4837/4837132.xml?temp=.3423731
+Top
+
+20 楼xiejienet（不喜欢吃糖啦）回复于 2006-11-10 18:36:16 得分 1先谢谢了   
+  回寝室拿U盘去...
+Top
+
+21 楼chenhui530（陈辉）回复于 2006-11-11 08:36:51 得分 1如果要拦截U盘的插入和拔除一版的子类化不行吧   
+  应该用DLL   HOOK吧~~
+Top
+
+22 楼zcsor（偶业余的虽然星星了，但是水平依然是非常业余的。）回复于 2006-11-11 23:08:11 得分 1U盘插入和退出计算机时拦消息,怎么写?   
+  有思路和资料的也行,   
+  请不要提供用TIME来不停查寻的例子,太浪费系统资料.谢谢   
+  这个问题还没解决？？？？？？   
+  怎么又翻出来了。。。。天   
+  
+Top
+
+23 楼zcsor（偶业余的虽然星星了，但是水平依然是非常业余的。）回复于 2006-11-11 23:09:14 得分 1你去下一个MSGHOOK.OCX用我的代码就可以解决问题了。   
+  或者你子类拦截相同消息也一样的。
+Top
+
+24 楼chenhui530（陈辉）回复于 2006-11-12 11:41:11 得分 10我想大家都误会楼主的意思了   
+  楼主是拦截不是获取   
+  
+Top
+
+25 楼otter668（）回复于 2006-11-13 22:24:57 得分 1好东东   顶一个
+Top
+
+26 楼shisoftgenius（Shisoft）回复于 2007-04-04 16:58:55 得分 0 用WMI也可以做到
