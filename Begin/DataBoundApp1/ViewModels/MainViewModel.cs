@@ -104,7 +104,7 @@ namespace DataBoundApp1
                 //SocketAsyncEventArgs saea = new SocketAsyncEventArgs();
                 // IPv6 is enabled!!
                 WebClient postClient = new WebClient();
-                string requestURL = "http://[2001:250:401:a001::3]/";
+                string requestURL = "http://[2001:250:401:0415:1919:2015:1405:0400]/";
 
                 postClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(postClient_DownloadStringCompleted);
                 postClient.DownloadStringAsync(new Uri(requestURL));
