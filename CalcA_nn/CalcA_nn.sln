@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcA_nn", "CalcA_nn\CalcA_nn.csproj", "{4D8BC18B-DB01-496B-9AD1-3E18365FA5C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Combination", "Combination\Combination.csproj", "{244A8D66-185B-46F6-A034-CF2103ABA197}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D8BC18B-DB01-496B-9AD1-3E18365FA5C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D8BC18B-DB01-496B-9AD1-3E18365FA5C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D8BC18B-DB01-496B-9AD1-3E18365FA5C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D8BC18B-DB01-496B-9AD1-3E18365FA5C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{244A8D66-185B-46F6-A034-CF2103ABA197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{244A8D66-185B-46F6-A034-CF2103ABA197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{244A8D66-185B-46F6-A034-CF2103ABA197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{244A8D66-185B-46F6-A034-CF2103ABA197}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
