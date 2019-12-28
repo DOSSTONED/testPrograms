@@ -1,0 +1,206 @@
+Imports System.IO
+Imports System.Runtime.InteropServices
+Imports System.Threading
+ 
+Public Class DriveController
+ 
+    Private Const LOCK_TIMEOUT As Integer = 10000       ' 10 Seconds
+    Private Const LOCK_RETRIES As Integer = 20
+    Private Const GENERIC_READ As Integer = &H80000000
+    Private Const GENERIC_WRITE As Integer = &H40000000
+    Private Const OPEN_EXISTING As Integer = 3
+    Private Const FILE_SHARE_READ As Integer = 1
+    Private Const FILE_SHARE_WRITE As Integer = 2
+    Private Const INVALID_HANDLE_VALUE As Integer = -1
+    Private Const FSCTL_LOCK_VOLUME As Integer = &H90018
+    Private Const FSCTL_DISMOUNT_VOLUME As Integer = &H90020
+    Private Const IOCTL_STORAGE_MEDIA_REMOVAL As Integer = &H2D4804
+    Private Const IOCTL_STORAGE_EJECT_MEDIA As Integer = &H2D4808
+    Private Const IOCTL_STORAGE_LOAD_MEDIA As Integer = &H2D480C
+ 
+    Private Structure PREVENT_MEDIA_REMOVAL
+        Dim PreventMediaRemoval As Boolean
+    End Structure
+ 
+    Private Declare Auto Function DeviceIoControl Lib "kernel32" ( _
+        ByVal hDevice As IntPtr, _
+        ByVal dwIoControlCode As Integer, _
+        ByVal lpInBuffer As IntPtr, _
+        ByVal nInBufferSize As Integer, _
+        ByVal lpOutBuffer As IntPtr, _
+        ByVal nOutBufferSize As Integer, _
+        ByRef lpBytesReturned As Integer, _
+        ByVal lpOverlapped As IntPtr _
+    ) As Boolean
+ 
+    Private Declare Unicode Function CreateFile Lib "kernel32" Alias "CreateFileW" ( _
+        ByVal lpFileName As String, _
+        ByVal dwDesiredAccess As Integer, _
+        ByVal dwShareMode As Integer, _
+        ByVal lpSecurityAttributes As IntPtr, _
+        ByVal dwCreationDisposition As Integer, _
+        ByVal dwFlagsAndAttributes As Integer, _
+        ByVal hTemplateFile As IntPtr _
+    ) As IntPtr
+ 
+    Declare Function CloseHandle Lib "kernel32" ( _
+        ByVal hObject As IntPtr _
+    ) As Boolean
+ 
+    Private Function OpenVolume(ByVal drive As DriveInfo) As IntPtr
+        Dim hVolume As IntPtr
+        Dim driveLetter As String = CChar(drive.Name) ' this will take only the first character
+        Dim dwAccessFlags As Integer
+ 
+        Select Case drive.DriveType
+            Case DriveType.Removable
+                dwAccessFlags = GENERIC_READ Or GENERIC_WRITE
+            Case DriveType.CDRom
+                dwAccessFlags = GENERIC_READ
+            Case Else
+                Throw New ArgumentException(String.Format("Cannot eject--'{0}' is not a removable drive.", drive.Name))
+        End Select
+ 
+        hVolume = CreateFile(String.Format("\\.\{0}:", driveLetter), _
+                               dwAccessFlags, _
+                               FILE_SHARE_READ Or FILE_SHARE_WRITE, _
+                               Nothing, _
+                               OPEN_EXISTING, _
+                               0, _
+                               Nothing)
+ 
+        If hVolume = INVALID_HANDLE_VALUE Then
+            Throw New IOException("Unable to open volume")
+        End If
+ 
+        Return hVolume
+    End Function
+ 
+    Private Function LockVolume(ByVal hVolume As IntPtr) As Boolean
+        Dim dwBytesReturned As UInteger
+        Dim dwSleepAmount As UInteger
+ 
+        dwSleepAmount = LOCK_TIMEOUT / LOCK_RETRIES
+ 
+        For nTryCount As Integer = 1 To LOCK_RETRIES
+            If (DeviceIoControl(hVolume, _
+                                FSCTL_LOCK_VOLUME, _
+                                Nothing, 0, _
+                                Nothing, 0, _
+                                dwBytesReturned, _
+                                Nothing)) Then
+                Return True
+            End If
+ 
+            Thread.Sleep(dwSleepAmount)
+        Next
+ 
+        Return False
+    End Function
+ 
+    Private Function DismountVolume(ByVal hVolume As IntPtr) As Boolean
+        Dim dwBytesReturned As UInteger
+ 
+        Return DeviceIoControl(hVolume, _
+                                FSCTL_DISMOUNT_VOLUME, _
+                                Nothing, 0, _
+                                Nothing, 0, _
+                                dwBytesReturned, _
+                                Nothing)
+    End Function
+ 
+    Private Function PreventRemovalOfVolume(ByVal hVolume As IntPtr, ByVal fPreventRemoval As Boolean) As Boolean
+        Dim dwBytesReturned As UInteger
+        Dim PMR As PREVENT_MEDIA_REMOVAL
+        Dim bufferSize As Integer = Marshal.SizeOf(GetType(PREVENT_MEDIA_REMOVAL))
+        Dim succeeded As Boolean = False
+        Dim lpInBuffer As IntPtr = IntPtr.Zero
+ 
+        Try
+            lpInBuffer = Marshal.AllocCoTaskMem(bufferSize)
+            PMR.PreventMediaRemoval = fPreventRemoval
+            Marshal.StructureToPtr(PMR, lpInBuffer, False)
+            succeeded = DeviceIoControl(hVolume, _
+                                        IOCTL_STORAGE_MEDIA_REMOVAL, _
+                                        lpInBuffer, bufferSize, _
+                                        Nothing, 0, _
+                                        dwBytesReturned, _
+                                        Nothing)
+        Finally
+            If lpInBuffer <> IntPtr.Zero Then
+                Marshal.FreeCoTaskMem(lpInBuffer)
+            End If
+        End Try
+ 
+        Return succeeded
+    End Function
+ 
+    Private Function EjectMedia(ByVal hVolume As IntPtr) As Boolean
+        Dim dwBytesReturned As UInteger
+ 
+        Return DeviceIoControl(hVolume, _
+                                IOCTL_STORAGE_EJECT_MEDIA, _
+                                Nothing, 0, _
+                                Nothing, 0, _
+                                dwBytesReturned, _
+                                Nothing)
+    End Function
+ 
+    Private Function LoadMedia(ByVal hVolume As IntPtr) As Boolean
+        Dim dwBytesReturned As UInteger
+ 
+        Return DeviceIoControl(hVolume, _
+                                IOCTL_STORAGE_LOAD_MEDIA, _
+                                Nothing, 0, _
+                                Nothing, 0, _
+                                dwBytesReturned, _
+                                Nothing)
+    End Function
+ 
+    Public Function Eject(ByVal driveName As String) As Boolean
+        Dim drive As New DriveInfo(driveName)
+        Dim hVolume As IntPtr
+        Dim dismountSucceeded As Boolean = False
+        Dim ejectSucceeded As Boolean = False
+ 
+        ' Open the volume.
+        hVolume = OpenVolume(drive)
+ 
+        ' Lock and dismount the volume.
+        If (LockVolume(hVolume) AndAlso DismountVolume(hVolume)) Then
+            ' Set prevent removal to false and eject the media.
+            If (PreventRemovalOfVolume(hVolume, False) AndAlso EjectMedia(hVolume)) Then
+                ejectSucceeded = True
+            End If
+        End If
+ 
+        ' Close the volume so other processes can use the drive.
+        If Not CloseHandle(hVolume) Then
+            ejectSucceeded = False
+        End If
+ 
+        Return ejectSucceeded
+    End Function
+ 
+    Public Function Load(ByVal driveName As String) As Boolean
+        Dim drive As New DriveInfo(driveName)
+        Dim hVolume As IntPtr
+        Dim loadSucceeded As Boolean = False
+ 
+        ' Open the volume.
+        hVolume = OpenVolume(drive)
+ 
+        ' Load the media.
+        If LoadMedia(hVolume) Then
+            loadSucceeded = True
+        End If
+ 
+        ' Close the volume so other processes can use the drive.
+        If Not CloseHandle(hVolume) Then
+            loadSucceeded = False
+        End If
+ 
+        Return loadSucceeded
+    End Function
+ 
+End Class

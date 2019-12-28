@@ -2,7 +2,10 @@
 if [ "$1" = "" ]
 then
   echo "No date param provided. Example:"
-  echo "$0 \"Sun, 1 Mar 2009 00:00:00 +0800\""
+  echo "$0 \"2009-03-01 08:00\" [other git params]"
 else
-  GIT_COMMITTER_DATE="$1" git commit --date "$1"
+  dat=$(date --date "$1" -R)
+  # Shift one place, remaining params are transferred to git
+  shift
+  GIT_COMMITTER_DATE="$dat" git commit --date "$dat" "$@"
 fi
