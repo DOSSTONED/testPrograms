@@ -1,0 +1,38 @@
+Input
+3
+ejp mysljylc kd kxveddknmc re jsicpdrysi
+rbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd
+de kr kd eoya kw aej tysr re ujdr lkgc jv
+
+
+Output
+Case #1: our language is impossible to understand
+Case #2: there are twenty six factorial possibilities
+Case #3: so it is okay if you want to just give up
+
+a	y
+b	n
+c	f
+d	i
+e	c
+f	w
+g	l
+h	b
+i	k
+j	u
+k	o
+l	m
+m	x
+n	s
+o	e
+p	v
+q
+r	p
+s	d
+t	r
+u	j
+v	g
+w	t
+x	h
+y	a
+z
