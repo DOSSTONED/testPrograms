@@ -1,0 +1,10 @@
+﻿<Window x:Class="Word_6000_WPF.MessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MessageBox" Height="244" Width="337" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Loaded="Window_Loaded" FontSize="16" ShowInTaskbar="False">
+    <Grid Background="#00000000">
+        <Button Content="Yes" Height="33" HorizontalAlignment="Left" Margin="45,0,0,12" Name="buttonYes" VerticalAlignment="Bottom" Width="84" Click="buttonYes_Click" />
+        <Button Content="No" Height="33" HorizontalAlignment="Right" Margin="0,0,45,12" Name="buttonNo" VerticalAlignment="Bottom" Width="84" Click="buttonNo_Click" />
+        <TextBlock Margin="12,12,12,41" Name="textBlock1" Text="TextBlock" TextAlignment="Center" TextWrapping="Wrap" />
+    </Grid>
+</Window>

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "生成很多整数", "大数据测试\生成很多整数.csproj", "{70BF70D3-C961-4309-BD4A-C7D6A07DB2D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "找出中位数", "找出中位数\找出中位数.csproj", "{AFAF0EB0-68AA-45E4-86D9-CB05E323E531}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70BF70D3-C961-4309-BD4A-C7D6A07DB2D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70BF70D3-C961-4309-BD4A-C7D6A07DB2D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70BF70D3-C961-4309-BD4A-C7D6A07DB2D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70BF70D3-C961-4309-BD4A-C7D6A07DB2D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFAF0EB0-68AA-45E4-86D9-CB05E323E531}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFAF0EB0-68AA-45E4-86D9-CB05E323E531}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFAF0EB0-68AA-45E4-86D9-CB05E323E531}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFAF0EB0-68AA-45E4-86D9-CB05E323E531}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
