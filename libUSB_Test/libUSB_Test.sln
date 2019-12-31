@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 11
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libUSB_Test", "libUSB_Test\libUSB_Test.csproj", "{DD7DDDEE-9177-4755-8406-00F9DF3A8264}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console_USB", "Console_USB\Console_USB.csproj", "{366AAB70-09B2-4257-B7FF-0D06916AE9DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{366AAB70-09B2-4257-B7FF-0D06916AE9DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{366AAB70-09B2-4257-B7FF-0D06916AE9DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{366AAB70-09B2-4257-B7FF-0D06916AE9DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{366AAB70-09B2-4257-B7FF-0D06916AE9DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD7DDDEE-9177-4755-8406-00F9DF3A8264}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD7DDDEE-9177-4755-8406-00F9DF3A8264}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD7DDDEE-9177-4755-8406-00F9DF3A8264}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
