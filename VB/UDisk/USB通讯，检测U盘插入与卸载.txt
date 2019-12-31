@@ -1,0 +1,95 @@
+Imports System.IO
+
+Public Class Form1
+
+    Public Const WM_DEVICECHANGE = &H219
+    Public Const DBT_DEVICEARRIVAL = &H8000
+    Public Const DBT_CONFIGCHANGECANCELED = &H19
+    Public Const DBT_CONFIGCHANGED = &H18
+    Public Const DBT_CUSTOMEVENT = &H8006
+    Public Const DBT_DEVICEQUERYREMOVE = &H8001
+    Public Const DBT_DEVICEQUERYREMOVEFAILED = &H8002
+    Public Const DBT_DEVICEREMOVECOMPLETE = &H8004
+    Public Const DBT_DEVICEREMOVEPENDING = &H8003
+    Public Const DBT_DEVICETYPESPECIFIC = &H8005
+    Public Const DBT_DEVNODES_CHANGED = &H7
+    Public Const DBT_QUERYCHANGECONFIG = &H17
+    Public Const DBT_USERDEFINED = &HFFFF
+
+    Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
+        If m.Msg = WM_DEVICECHANGE Then
+            Select Case m.WParam
+                Case WM_DEVICECHANGE
+                Case DBT_DEVICEARRIVAL 'U盘插入
+                    ComboBox1.Items.Clear()
+                    Dim s() As DriveInfo = DriveInfo.GetDrives
+                    For Each drive As DriveInfo In s
+                        If drive.DriveType = DriveType.Removable Then
+                            ListBox1.Items.Add("U盘已插入！盘符为:" + drive.Name.ToString())
+                            ComboBox1.Items.Add(drive.Name)
+                        End If
+                    Next
+                    BtnWrite.Enabled = True
+                    BtnRead.Enabled = True
+                Case DBT_CONFIGCHANGECANCELED
+                Case DBT_CONFIGCHANGED
+                Case DBT_CUSTOMEVENT
+                Case DBT_DEVICEQUERYREMOVE
+                Case DBT_DEVICEQUERYREMOVEFAILED
+                Case DBT_DEVICEREMOVECOMPLETE 'U盘卸载
+                    ListBox1.Items.Add("U盘卸载！")
+                    BtnWrite.Enabled = False
+                    BtnRead.Enabled = False
+                Case DBT_DEVICEREMOVEPENDING
+                Case DBT_DEVICETYPESPECIFIC
+                Case DBT_DEVNODES_CHANGED
+                Case DBT_QUERYCHANGECONFIG
+                Case DBT_USERDEFINED
+            End Select
+        End If
+
+        MyBase.WndProc(m)
+    End Sub
+
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        ListBox1.Items.Add("请您现在插入U盘至USB接口！")
+    End Sub
+
+    Private Sub BtnWrite_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnWrite.Click
+        If ComboBox1.Text = "" Then
+            MsgBox("请选择U盘盘符！", MsgBoxStyle.Exclamation, "Warn")
+        Else
+            Dim Writer As StreamWriter = Nothing
+            Try
+                Dim fileName As String = ComboBox1.Text + "Test.txt"
+                Writer = New StreamWriter(fileName)
+                Writer.WriteLine(InputBox("老四，请输入要保存的字符串", "输入信息", "Input then Test String! hehe!"))
+                MsgBox("Write to " + fileName + " Success!")
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Write 失败")
+            Finally
+                If Writer IsNot Nothing Then Writer.Close()
+            End Try
+        End If
+    End Sub
+
+    Private Sub BtnRead_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnRead.Click
+        If ComboBox1.Text = "" Then
+            MsgBox("请选择U盘盘符！", MsgBoxStyle.Exclamation, "Warn")
+        Else
+            Dim Reader As StreamReader = Nothing
+            Try
+                Dim fileName As String = ComboBox1.Text + "Test.txt"
+                Reader = New StreamReader(fileName)
+                MsgBox("Read from " + fileName + vbCrLf + Reader.ReadToEnd, MsgBoxStyle.Information, "Info")
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Read 失败")
+            Finally
+                If Reader IsNot Nothing Then Reader.Close()
+            End Try
+        End If
+    End Sub
+End Class
+
+
+本文来自CSDN博客，转载请标明出处：http://blog.csdn.net/wzuomin/archive/2007/07/27/1711720.aspx

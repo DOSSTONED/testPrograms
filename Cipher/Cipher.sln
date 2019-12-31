@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "位移加密", "位移加密\位移加密.csproj", "{A8EAC1A5-24B7-4991-A2C8-B869F774BE8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "文件转位图", "文件转位图\文件转位图.csproj", "{2919D0C9-7253-4AA5-A4EC-67A246693B4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8EAC1A5-24B7-4991-A2C8-B869F774BE8F}.Debug|x86.ActiveCfg = Debug|x86
+		{A8EAC1A5-24B7-4991-A2C8-B869F774BE8F}.Debug|x86.Build.0 = Debug|x86
+		{A8EAC1A5-24B7-4991-A2C8-B869F774BE8F}.Release|x86.ActiveCfg = Release|x86
+		{A8EAC1A5-24B7-4991-A2C8-B869F774BE8F}.Release|x86.Build.0 = Release|x86
+		{2919D0C9-7253-4AA5-A4EC-67A246693B4B}.Debug|x86.ActiveCfg = Debug|x86
+		{2919D0C9-7253-4AA5-A4EC-67A246693B4B}.Debug|x86.Build.0 = Debug|x86
+		{2919D0C9-7253-4AA5-A4EC-67A246693B4B}.Release|x86.ActiveCfg = Release|x86
+		{2919D0C9-7253-4AA5-A4EC-67A246693B4B}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

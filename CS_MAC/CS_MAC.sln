@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS_MAC", "CS_MAC\CS_MAC.csproj", "{FEA35256-7E66-4C7E-92CE-DA1272D10DE1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEA35256-7E66-4C7E-92CE-DA1272D10DE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEA35256-7E66-4C7E-92CE-DA1272D10DE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEA35256-7E66-4C7E-92CE-DA1272D10DE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEA35256-7E66-4C7E-92CE-DA1272D10DE1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

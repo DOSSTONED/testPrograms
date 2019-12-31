@@ -1,0 +1,11 @@
+normal sqrt: 0.77
+Q_rsqrt sqrt: 4.74001
+
+
+normal sqrt: 0.55
+Q_rsqrt sqrt: 4.40001
+
+
+normal sqrt: 1.05
+Q_rsqrt sqrt: 4.96002
+

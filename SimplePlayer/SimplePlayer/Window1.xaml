@@ -1,0 +1,27 @@
+﻿<Window x:Class="SimplePlayer.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:SimplePlayer"
+    Title="Window1" Height="300" Width="300" Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <local:timeSpanConverter x:Key="timespanConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Label Margin="12,0,12,12" Name="labelDisplayLRC" Height="28" VerticalAlignment="Bottom" HorizontalContentAlignment="Center">LRC File</Label>
+        <Button Height="23" HorizontalAlignment="Right" Margin="0,12,12,0" Name="buttonOpenFile" VerticalAlignment="Top" Width="75" Click="buttonOpenFile_Click">Open File</Button>
+        <MediaElement Name="mediaElement1"  LoadedBehavior="Manual" Height="0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="0" >
+        </MediaElement>
+        
+
+        <Slider Height="69" Name="sliderVolume" Margin="0,0,12,46" Orientation="Vertical" HorizontalAlignment="Right" Width="22" VerticalAlignment="Bottom" SmallChange="0.01" Interval="1" LargeChange="0.1" Maximum="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Value="{Binding Volume, ElementName=mediaElement1, Mode=TwoWay, UpdateSourceTrigger=Default}"></Slider>
+        <Slider Height="22" Margin="12,41,12,0" Name="sliderPlay" VerticalAlignment="Top" 
+                Value="{Binding ElementName=mediaElement1, Path=Position, Mode=TwoWay, Converter={StaticResource timespanConverter}}" Maximum="600">
+            
+        </Slider>
+        <Button Height="23" HorizontalAlignment="Left" Margin="41,12,0,0" Name="buttonStop" VerticalAlignment="Top" Width="23" Click="buttonStop_Click">■</Button>
+        <Button Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="buttonPlay" VerticalAlignment="Top" Width="23" Click="buttonPlay_Click">▲</Button>
+        <Label Margin="12,69,0,0" Name="labelDuration" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Content="{Binding ElementName=mediaElement1, Path=Position, Mode=TwoWay}"></Label>
+    </Grid>
+
+</Window>
