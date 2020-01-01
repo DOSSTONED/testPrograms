@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RasDial", "RasDial\RasDial.csproj", "{436B217A-F57C-436C-B698-84CCB9ACFD6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CNC", "CNC\CNC.csproj", "{A5EE1162-FBC8-49A6-AB46-29596FF55528}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindF", "FindF\FindF.csproj", "{402E925D-58C5-4A1D-87F3-3269730F3D2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Router", "Router\Router.csproj", "{51459227-54F1-4DCC-AA4A-16B697D8BB4C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{436B217A-F57C-436C-B698-84CCB9ACFD6F}.Debug|x86.ActiveCfg = Debug|x86
+		{436B217A-F57C-436C-B698-84CCB9ACFD6F}.Debug|x86.Build.0 = Debug|x86
+		{436B217A-F57C-436C-B698-84CCB9ACFD6F}.Release|x86.ActiveCfg = Release|x86
+		{436B217A-F57C-436C-B698-84CCB9ACFD6F}.Release|x86.Build.0 = Release|x86
+		{A5EE1162-FBC8-49A6-AB46-29596FF55528}.Debug|x86.ActiveCfg = Debug|x86
+		{A5EE1162-FBC8-49A6-AB46-29596FF55528}.Debug|x86.Build.0 = Debug|x86
+		{A5EE1162-FBC8-49A6-AB46-29596FF55528}.Release|x86.ActiveCfg = Release|x86
+		{A5EE1162-FBC8-49A6-AB46-29596FF55528}.Release|x86.Build.0 = Release|x86
+		{402E925D-58C5-4A1D-87F3-3269730F3D2A}.Debug|x86.ActiveCfg = Debug|x86
+		{402E925D-58C5-4A1D-87F3-3269730F3D2A}.Debug|x86.Build.0 = Debug|x86
+		{402E925D-58C5-4A1D-87F3-3269730F3D2A}.Release|x86.ActiveCfg = Release|x86
+		{402E925D-58C5-4A1D-87F3-3269730F3D2A}.Release|x86.Build.0 = Release|x86
+		{51459227-54F1-4DCC-AA4A-16B697D8BB4C}.Debug|x86.ActiveCfg = Debug|x86
+		{51459227-54F1-4DCC-AA4A-16B697D8BB4C}.Debug|x86.Build.0 = Debug|x86
+		{51459227-54F1-4DCC-AA4A-16B697D8BB4C}.Release|x86.ActiveCfg = Release|x86
+		{51459227-54F1-4DCC-AA4A-16B697D8BB4C}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
