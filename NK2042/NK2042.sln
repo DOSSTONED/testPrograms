@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 11
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NK2042", "NK2042\NK2042.vcxproj", "{9F01DF85-A5DC-CA2C-DC47-99B57393399B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F01DF85-A5DC-CA2C-DC47-99B57393399B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9F01DF85-A5DC-CA2C-DC47-99B57393399B}.Debug|Win32.Build.0 = Debug|Win32
+		{9F01DF85-A5DC-CA2C-DC47-99B57393399B}.Debug|Win32.Deploy.0 = Debug|Win32
+		{9F01DF85-A5DC-CA2C-DC47-99B57393399B}.Release|Win32.ActiveCfg = Release|Win32
+		{9F01DF85-A5DC-CA2C-DC47-99B57393399B}.Release|Win32.Build.0 = Release|Win32
+		{9F01DF85-A5DC-CA2C-DC47-99B57393399B}.Release|Win32.Deploy.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
