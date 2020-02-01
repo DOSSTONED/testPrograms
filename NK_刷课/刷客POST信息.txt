@@ -1,0 +1,20 @@
+Response Headersview source
+Content-Type	text/html;charset=GBK
+Transfer-Encoding	chunked
+Date	Mon, 05 Sep 2011 15:30:03 GMT
+Server	Apache-Coyote/1.1
+Request Headersview source
+Host	192.168.4.15
+User-Agent	Mozilla/5.0 (Windows NT 6.1; WOW64; rv:6.0.1) Gecko/20100101 Firefox/6.0.1
+Accept	text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language	zh-cn,en-us;q=0.7,en;q=0.3
+Accept-Encoding	gzip, deflate
+Accept-Charset	gb18030,utf-8;q=0.7,*;q=0.7
+Connection	keep-alive
+Referer	http://192.168.4.15/xsxk/swichAction.do
+Cookie	JSESSIONID=6A135E075648ED103F389CDD6B00995C
+
+
+operation=xuanke&index=&xkxh1=&xkxh2=&xkxh3=&xkxh4=&departIncode=%25&remainindex=&dingwei=
+
+http://192.168.4.15/xsxk/swichAction.do?operation=tuike&index=&xkxh1=0505&xkxh2=&xkxh3=&xkxh4=&departIncode=%25&remainindex=&dingwei=
