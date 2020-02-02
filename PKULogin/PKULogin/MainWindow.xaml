@@ -1,0 +1,23 @@
+﻿<Window x:Class="PKULogin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="507" Width="669" FontSize="20">
+    <Grid>
+        <Grid Height="154" HorizontalAlignment="Left" Name="grid1" VerticalAlignment="Top" Width="141">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*" />
+                <RowDefinition Height="50*" />
+                <RowDefinition Height="50*" />
+                <RowDefinition Height="50*" />
+            </Grid.RowDefinitions>
+            <Label Content="Username __Un" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+            <Label Grid.Row="2" Content="Password __Pd" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" />
+            <TextBox Grid.Row="1" HorizontalAlignment="Stretch" Name="textBox_Un" VerticalAlignment="Stretch" Text="USERNAME_DOSSTONED" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}" />
+            <PasswordBox Grid.Row="3" HorizontalAlignment="Stretch" Name="passwordBox_Pb" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Password="PWDOSSTONED" BorderBrush="{x:Null}" />
+        </Grid>
+        <Button Content="Disconnect All" Height="45" HorizontalAlignment="Left" Name="buttonDisconnectAll" VerticalAlignment="Bottom" Width="141" Click="buttonDisconnectAll_Click" />
+        <Button Content="Browser Login" Height="171" HorizontalAlignment="Left" Margin="0,0,0,137" Name="buttonBrowserLogin" VerticalAlignment="Bottom" Width="141" Click="buttonBrowserLogin_Click" />
+        <WebBrowser Margin="147,0,0,0" Name="webBrowser1" />
+        <Button Content="Global Login" Height="80" HorizontalAlignment="Left" Margin="0,0,0,51" Name="button1" VerticalAlignment="Bottom" Width="141" Click="button1_Click" />
+    </Grid>
+</Window>

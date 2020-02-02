@@ -1,0 +1,8 @@
+﻿2012/10/3
+	创建该项目，用于登陆北大网关。同时尽可能迁移到WP平台和Metro上面。
+	使用HttpWebRequest来实现。
+	直接采用WebBrowser来显示内容，后面可以进行自主文本分析，文本不多。
+
+2012/10/27
+	添加Proxy参数，但是无法用SOCKS代理，只能用HTTP代理，所以就取消该计划。
+	http://www.mentalis.org/soft/class.qpx?id=9 这里可以找到支持SOCKS代理的东西
