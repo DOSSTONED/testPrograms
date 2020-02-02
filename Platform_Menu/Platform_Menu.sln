@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform_Menu", "Platform_Menu\Platform_Menu.csproj", "{27C756BC-752E-4F69-98F9-D0251B5D98F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlideBar_Control", "SlideBar\SlideBar_Control.csproj", "{F789BF5B-48BE-4F5E-A28D-F86CF2930E0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventTest", "EventTest\EventTest.csproj", "{6E48C2EC-1267-4695-9273-6CD7DE0B5B50}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27C756BC-752E-4F69-98F9-D0251B5D98F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27C756BC-752E-4F69-98F9-D0251B5D98F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27C756BC-752E-4F69-98F9-D0251B5D98F0}.Debug|x86.ActiveCfg = Debug|x86
+		{27C756BC-752E-4F69-98F9-D0251B5D98F0}.Debug|x86.Build.0 = Debug|x86
+		{27C756BC-752E-4F69-98F9-D0251B5D98F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C756BC-752E-4F69-98F9-D0251B5D98F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27C756BC-752E-4F69-98F9-D0251B5D98F0}.Release|x86.ActiveCfg = Release|x86
+		{27C756BC-752E-4F69-98F9-D0251B5D98F0}.Release|x86.Build.0 = Release|x86
+		{F789BF5B-48BE-4F5E-A28D-F86CF2930E0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F789BF5B-48BE-4F5E-A28D-F86CF2930E0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F789BF5B-48BE-4F5E-A28D-F86CF2930E0D}.Debug|x86.ActiveCfg = Debug|x86
+		{F789BF5B-48BE-4F5E-A28D-F86CF2930E0D}.Debug|x86.Build.0 = Debug|x86
+		{F789BF5B-48BE-4F5E-A28D-F86CF2930E0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F789BF5B-48BE-4F5E-A28D-F86CF2930E0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F789BF5B-48BE-4F5E-A28D-F86CF2930E0D}.Release|x86.ActiveCfg = Release|x86
+		{F789BF5B-48BE-4F5E-A28D-F86CF2930E0D}.Release|x86.Build.0 = Release|x86
+		{6E48C2EC-1267-4695-9273-6CD7DE0B5B50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E48C2EC-1267-4695-9273-6CD7DE0B5B50}.Debug|x86.ActiveCfg = Debug|x86
+		{6E48C2EC-1267-4695-9273-6CD7DE0B5B50}.Debug|x86.Build.0 = Debug|x86
+		{6E48C2EC-1267-4695-9273-6CD7DE0B5B50}.Release|Any CPU.ActiveCfg = Release|x86
+		{6E48C2EC-1267-4695-9273-6CD7DE0B5B50}.Release|x86.ActiveCfg = Release|x86
+		{6E48C2EC-1267-4695-9273-6CD7DE0B5B50}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

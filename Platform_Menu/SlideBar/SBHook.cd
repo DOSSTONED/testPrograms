@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SBarHook.SlideBar">
+    <Position X="0.5" Y="0.5" Width="4" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="SBarHook.SlideBar.InputBufferDataIndex" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SBHook.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="SBarHook.SlideBar.SlideBarSettings" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SBHook.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="SBarHook.SlideBar.Event" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SBHook.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="SBarHook.SlideBar.ApplicationRegistration" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SBHook.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="SBarHook.SlideBar.SlideBarDataAddress" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SBHook.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="SBarHook.SlideBar.Buffer1DataIndex" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SBHook.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Struct Name="SBarHook.SlideBar.SlideBarData" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SBHook.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Enum Name="SBarHook.SlideBar.Notification" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SBHook.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="SBarHook.SlideBar.ServiceKey" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SBHook.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="SBarHook.SlideBar.Action" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SBHook.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="SBarHook.SlideBar.SlideBarAction" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SBHook.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="SBarHook.SlideBar.DataBlock" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SBHook.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>oEAAAAhCUACAAAgAAgAAgAAgAAIGAAAAAABCAACAABA=</HashCode>
+      <FileName>SBHook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Delegate Name="SBarHook.SlideBarEventCallback" Collapsed="true">
+    <Position X="6.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SBHook.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="SBarHook.SlideBarEventHandler" Collapsed="true">
+    <Position X="6.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SBHook.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
