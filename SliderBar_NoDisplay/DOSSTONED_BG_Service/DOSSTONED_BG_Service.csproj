@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B603B03A-A81B-4E9A-A10F-1E075EE5268C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DOSSTONED_BG_Service</RootNamespace>
+    <AssemblyName>DOSSTONED_BG_Service</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CoreAudioApi\AudioEndpointVolume.cs" />
+    <Compile Include="CoreAudioApi\AudioEndpointVolumeCallback.cs" />
+    <Compile Include="CoreAudioApi\AudioEndpointVolumeChannel.cs" />
+    <Compile Include="CoreAudioApi\AudioEndpointVolumeChannels.cs" />
+    <Compile Include="CoreAudioApi\AudioEndpointVolumeNotificationDelegate.cs" />
+    <Compile Include="CoreAudioApi\AudioEndpointVolumeStepInformation.cs" />
+    <Compile Include="CoreAudioApi\AudioEndPointVolumeVolumeRange.cs" />
+    <Compile Include="CoreAudioApi\AudioMeterInformation.cs" />
+    <Compile Include="CoreAudioApi\AudioMeterInformationChannels.cs" />
+    <Compile Include="CoreAudioApi\AudioSessionControl.cs" />
+    <Compile Include="CoreAudioApi\AudioSessionDisconnectReason.cs" />
+    <Compile Include="CoreAudioApi\AudioSessionManager.cs" />
+    <Compile Include="CoreAudioApi\AudioSessionState.cs" />
+    <Compile Include="CoreAudioApi\AudioVolumeNotificationData.cs" />
+    <Compile Include="CoreAudioApi\EDataFlow.cs" />
+    <Compile Include="CoreAudioApi\EDeviceState.cs" />
+    <Compile Include="CoreAudioApi\EEndpointHardwareSupport.cs" />
+    <Compile Include="CoreAudioApi\ERole.cs" />
+    <Compile Include="CoreAudioApi\Interfaces\AUDIO_VOLUME_NOTIFICATION_DATA.cs" />
+    <Compile Include="CoreAudioApi\Interfaces\Blob.cs" />
+    <Compile Include="CoreAudioApi\Interfaces\CLSCTX.cs" />
+    <Compile Include="CoreAudioApi\Interfaces\eStgmAccess.cs" />
+    <Compile Include="CoreAudioApi\Interfaces\IAudioEndpointVolume.cs" />
+    <Compile Include="CoreAudioApi\Interfaces\IAudioEndpointVolumeCallback.cs" />
+    <Compile Include="CoreAudioApi\Interfaces\IAudioMeterInformation.cs" />
+    <Compile Include="CoreAudioApi\Interfaces\IAudioPeakMeter.cs" />
+    <Compile Include="CoreAudioApi\Interfaces\IAudioSessionControl2.cs" />
+    <Compile Include="CoreAudioApi\Interfaces\IAudioSessionEnumerator.cs" />
+    <Compile Include="CoreAudioApi\Interfaces\IAudioSessionEvents.cs" />
+    <Compile Include="CoreAudioApi\Interfaces\IAudioSessionManager2.cs" />
+    <Compile Include="CoreAudioApi\Interfaces\IMMDevice.cs" />
+    <Compile Include="CoreAudioApi\Interfaces\IMMDeviceCollection.cs" />
+    <Compile Include="CoreAudioApi\Interfaces\IMMDeviceEnumerator.cs" />
+    <Compile Include="CoreAudioApi\Interfaces\IMMEndpoint.cs" />
+    <Compile Include="CoreAudioApi\Interfaces\IPropertyStore.cs" />
+    <Compile Include="CoreAudioApi\Interfaces\ISimpleAudioVolume.cs" />
+    <Compile Include="CoreAudioApi\MMDevice.cs" />
+    <Compile Include="CoreAudioApi\MMDeviceCollection.cs" />
+    <Compile Include="CoreAudioApi\MMDeviceEnumerator.cs" />
+    <Compile Include="CoreAudioApi\PKEY.cs" />
+    <Compile Include="CoreAudioApi\PropertyKey.cs" />
+    <Compile Include="CoreAudioApi\PropertyStore.cs" />
+    <Compile Include="CoreAudioApi\PropertyStoreProperty.cs" />
+    <Compile Include="CoreAudioApi\PropVariant.cs" />
+    <Compile Include="CoreAudioApi\SessionCollection.cs" />
+    <Compile Include="CoreAudioApi\SimpleAudioVolume.cs" />
+    <Compile Include="DisableHardware.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Record_Brightness.cs" />
+    <Compile Include="SBHook.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CoreAudioApi\CoreAudioApi.csproj" />
+    <Content Include="CoreAudioApi\CoreAudioApi.csproj.user" />
+    <Content Include="LOG.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
