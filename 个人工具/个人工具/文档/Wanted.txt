@@ -1,0 +1,10 @@
+﻿"CamVerify / Password\r\n" +
+                                            "Program Certificated / Program Starter\r\n" +
+                                            "Setup Menu\r\n" +
+                                            "Web Browser (FileDownloader / Favorite Link / RSS)\r\n" +
+                                            "每日课表(Import)\r\n" +
+                                            "Notify(Abandoned)\r\n" +
+                                            "Flashdisk(Finished) / Sys Protect" +
+                                            "透明钟表(Import)\r\n";
+                                            
+                                            启动外部程序时要单独创立一个线程

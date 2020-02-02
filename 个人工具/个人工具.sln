@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "个人工具", "个人工具\个人工具.csproj", "{812B9706-5BC2-48DA-9793-1744A1087FFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{812B9706-5BC2-48DA-9793-1744A1087FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{812B9706-5BC2-48DA-9793-1744A1087FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{812B9706-5BC2-48DA-9793-1744A1087FFE}.Debug|x64.ActiveCfg = Debug|x64
+		{812B9706-5BC2-48DA-9793-1744A1087FFE}.Debug|x64.Build.0 = Debug|x64
+		{812B9706-5BC2-48DA-9793-1744A1087FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{812B9706-5BC2-48DA-9793-1744A1087FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{812B9706-5BC2-48DA-9793-1744A1087FFE}.Release|x64.ActiveCfg = Release|x64
+		{812B9706-5BC2-48DA-9793-1744A1087FFE}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
